@@ -6,14 +6,26 @@
 	font-weight: 400;
 	font-style: normal;
 
+	--taupe: #463f3a;
+	--battleship-gray: #8a817c;
+	--silver: #bcb8b1;
+	--isabelline: #f4f3ee;
+	--melon: #e0afa0;
+
 	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
+	color: var(--isabelline);
+	background-color: var(--taupe);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	--taupe: #463f3a;
+	--battleship-gray: #8a817c;
+	--silver: #bcb8b1;
+	--isabelline: #f4f3ee;
+	--melon: #e0afa0;
 }
 
 * {
