@@ -2,15 +2,14 @@ import React from "react";
 import "./App.css";
 import Container from "./components/Container";
 import CardList from "./components/CardList";
+import Albums from "./components/Albums";
 
 function App() {
 	return (
 		<div className="app-app">
-			<Container title="All Album">
+			<Container title="Albums">
 				<CardList>
-					{new Array(50).fill(0).map((_, id) => (
-						<div key={id}>ABC</div>
-					))}
+					<Albums />
 				</CardList>
 			</Container>
 		</div>

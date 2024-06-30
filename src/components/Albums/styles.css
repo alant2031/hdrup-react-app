@@ -1,0 +1,13 @@
+.album-card-title {
+	color: var(--battleship-gray);
+}
+
+.album-card-content {
+	height: 95px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: justify;
+	border: 1px solid var(--battleship-gray);
+	padding: 5px;
+	border-radius: 5px;
+}
