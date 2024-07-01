@@ -1,5 +1,10 @@
 .album-card-title {
 	color: var(--taupe);
+	cursor: pointer;
+}
+
+.album-card-title:hover {
+	text-decoration: underline;
 }
 
 .album-card-content {

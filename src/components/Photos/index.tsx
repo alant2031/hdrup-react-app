@@ -21,6 +21,7 @@ type TPhotoState = PhotoInterface & IViews;
 
 function Photos({ albumId }: IProps) {
 	const [photos, setPhotos] = useState<TPhotoState[]>([]);
+	const [isLoading, setIsLoading] = useState(true);
 	const [views] = useLocalStorage<{ views: number; photoId: string }[]>(
 		"client",
 		[]
@@ -39,6 +40,7 @@ function Photos({ albumId }: IProps) {
 				}
 				return { ...p, views: +JSON.parse(photoItem).views };
 			});
+			setIsLoading(false);
 			setPhotos(formated as TPhotoState[]);
 			return;
 		}
@@ -50,20 +52,24 @@ function Photos({ albumId }: IProps) {
 	}, []);
 	return (
 		<>
-			{photos?.map((photo: PhotoInterface & IViews, id: number) => {
-				const photo_views = views.find((v) => +v.photoId === +photo.id);
-				return (
-					<Card key={id}>
-						<h2 className="photo-card-title" onClick={() => handle(photo.id)}>
-							Photo {photo.id}
-						</h2>
-						<div className="photo-card-subtitle">
-							Views: {photo_views?.views || 0}
-						</div>
-						<Thumb photo={photo} />
-					</Card>
-				);
-			})}
+			{isLoading ? (
+				<div>Loading . . </div>
+			) : (
+				photos?.map((photo: PhotoInterface & IViews, id: number) => {
+					const photo_views = views.find((v) => +v.photoId === +photo.id);
+					return (
+						<Card key={id}>
+							<h2 className="photo-card-title" onClick={() => handle(photo.id)}>
+								Photo {photo.id}
+							</h2>
+							<div className="photo-card-subtitle">
+								Views: {photo_views?.views || 0}
+							</div>
+							<Thumb photo={photo} />
+						</Card>
+					);
+				})
+			)}
 		</>
 	);
 }

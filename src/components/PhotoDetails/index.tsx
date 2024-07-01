@@ -1,16 +1,12 @@
-import { useEffect } from "react";
 import Container from "../Container";
 import { useParams } from "react-router-dom";
 import { usePhotoViewStorage } from "../../lib/hooks";
 
-function PhotoApp() {
+function PhotoDetails() {
 	const params = useParams();
 	const photoId = params.photoId!;
-	const [views, _] = usePhotoViewStorage(photoId);
-	useEffect(() => {
-		// console.log(views);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	const [views] = usePhotoViewStorage(photoId);
+
 	return (
 		<Container title={"Photo " + photoId}>
 			<div>PHOTO {params.photoId} DETAILS</div>
@@ -19,4 +15,4 @@ function PhotoApp() {
 	);
 }
 
-export default PhotoApp;
+export default PhotoDetails;

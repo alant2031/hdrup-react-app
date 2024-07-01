@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function Albums() {
 	const [albums, setAlbums] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 	const navigate = useNavigate();
 	const handle = (albumId: string) => {
 		return navigate("/albums/" + albumId + "/photos");
@@ -14,6 +15,7 @@ function Albums() {
 	const fetchListAlbum = async () => {
 		const resp = await listAlbum();
 		if (resp) {
+			setIsLoading(false);
 			setAlbums(resp);
 			return;
 		}
@@ -24,12 +26,18 @@ function Albums() {
 	}, []);
 	return (
 		<>
-			{albums.map((album: AlbumInterface, id) => (
-				<Card key={id} onClickHandle={() => handle(album.id)}>
-					<h2 className="album-card-title">Album {album.id}</h2>
-					<div className="album-card-content">{album.title}</div>
-				</Card>
-			))}
+			{isLoading ? (
+				<div>Loading . . .</div>
+			) : (
+				albums.map((album: AlbumInterface, id) => (
+					<Card key={id}>
+						<h2 className="album-card-title" onClick={() => handle(album.id)}>
+							Album {album.id}
+						</h2>
+						<div className="album-card-content">{album.title}</div>
+					</Card>
+				))
+			)}
 		</>
 	);
 }

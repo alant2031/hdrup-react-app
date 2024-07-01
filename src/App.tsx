@@ -1,13 +1,18 @@
-import { RouterProvider } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
+import homeSvg from "./assets/home.svg";
 
-import AlbumsApp from "./components/AlbumsApp";
-import router from "./routes/root.tsx";
+import AppRoutes from "./routes/app-routes.tsx";
 
 function App() {
+	const navigate = useNavigate();
 	return (
 		<div className="app-app">
-			<RouterProvider router={router} />
+			<button className="home-btn" onClick={() => navigate("/")}>
+				<img src={homeSvg} alt="home icon" />
+				<p>Albums</p>
+			</button>
+			<AppRoutes />
 		</div>
 	);
 }

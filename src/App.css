@@ -1,3 +1,19 @@
 .app-app {
-	padding: 45px;
+	padding: 20px;
+}
+
+.home-btn {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	border-radius: 15px;
+}
+
+.home-btn > p {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.home-btn > img {
+	height: 40px;
 }
