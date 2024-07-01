@@ -1,0 +1,19 @@
+.img-group {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.img-group img {
+	max-height: 245px;
+}
+
+.album-link {
+	color: var(--taupe);
+	font-weight: 800;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}

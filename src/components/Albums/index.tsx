@@ -19,7 +19,9 @@ function Albums() {
 			setAlbums(resp);
 			return;
 		}
-		alert("Erro 500 - tente novamente mais tarde");
+		alert(
+			"A página que você está tentando acessar não está disponível no momento. Por favor, volte mais tarde."
+		);
 	};
 	useEffect(() => {
 		fetchListAlbum();

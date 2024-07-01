@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./App.css";
 import homeSvg from "./assets/home.svg";
 
-import AppRoutes from "./routes/app-routes.tsx";
+import AppRoutes from "./routes/root.tsx";
 
 function App() {
 	const navigate = useNavigate();

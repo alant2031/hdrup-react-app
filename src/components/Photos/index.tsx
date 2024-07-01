@@ -44,7 +44,9 @@ function Photos({ albumId }: IProps) {
 			setPhotos(formated as TPhotoState[]);
 			return;
 		}
-		alert("Erro 500 - tente novamente mais tarde");
+		alert(
+			"A página que você está tentando acessar não está disponível no momento. Por favor, volte mais tarde."
+		);
 	};
 	useEffect(() => {
 		fetchListPhotos();
@@ -59,9 +61,12 @@ function Photos({ albumId }: IProps) {
 					const photo_views = views.find((v) => +v.photoId === +photo.id);
 					return (
 						<Card key={id}>
-							<h2 className="photo-card-title" onClick={() => handle(photo.id)}>
-								Photo {photo.id}
-							</h2>
+							<div
+								className="photo-card-title"
+								onClick={() => handle(photo.id)}
+							>
+								{photo.title}
+							</div>
 							<div className="photo-card-subtitle">
 								Views: {photo_views?.views || 0}
 							</div>
