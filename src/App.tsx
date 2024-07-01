@@ -1,16 +1,13 @@
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import Container from "./components/Container";
-import CardList from "./components/CardList";
-import Albums from "./components/Albums";
+
+import AlbumsApp from "./components/AlbumsApp";
+import router from "./routes/root.tsx";
 
 function App() {
 	return (
 		<div className="app-app">
-			<Container title="Albums">
-				<CardList>
-					<Albums />
-				</CardList>
-			</Container>
+			<RouterProvider router={router} />
 		</div>
 	);
 }

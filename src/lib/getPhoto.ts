@@ -1,1 +1,1 @@
-import client from "../http/client";
+import httpClient from "../http/http-client";

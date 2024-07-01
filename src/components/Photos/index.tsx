@@ -1,23 +1,44 @@
 import { useEffect, useState } from "react";
 
 import Card from "../Card";
-import { PhotoInterface } from "../../utils/types";
+
 import listPhoto from "../../lib/listPhoto";
+import { PhotoInterface } from "../../utils/types";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
+import { useLocalStorage } from "usehooks-ts";
 
 interface IProps {
-	id: string;
+	albumId: string;
 }
 
-function Photos({ id }: IProps) {
-	const [photos, setPhotos] = useState([]);
+interface IViews {
+	views: number;
+}
+
+type TPhotoState = PhotoInterface & IViews;
+
+function Photos({ albumId }: IProps) {
+	const [photos, setPhotos] = useState<TPhotoState[]>([]);
+	const [views] = useLocalStorage<{ views: number; photoId: string }[]>(
+		"client",
+		[]
+	);
+	const navigate = useNavigate();
 	const handle = (photo_id: string) => {
-		console.log(photo_id);
+		return navigate("/photos/" + photo_id);
 	};
 	const fetchListPhotos = async () => {
-		const resp = await listPhoto(id);
-		if (resp) {
-			setPhotos(resp);
+		const photosResp = (await listPhoto(albumId)) as TPhotoState[];
+		if (photosResp) {
+			const formated = photosResp.map((p) => {
+				const photoItem = localStorage.getItem("photoItem-" + p.id);
+				if (photoItem === null) {
+					return { ...p, views: 0 };
+				}
+				return { ...p, views: +JSON.parse(photoItem).views };
+			});
+			setPhotos(formated as TPhotoState[]);
 			return;
 		}
 		alert("Erro 500 - tente novamente mais tarde");
@@ -28,14 +49,20 @@ function Photos({ id }: IProps) {
 	}, []);
 	return (
 		<>
-			{photos.map((photos: PhotoInterface, id) => (
-				<Card key={id} onClickHandle={() => handle(photos.id)}>
-					<h2 className="photo-card-title">Photo {photos.id}</h2>
-					<div className="photo-card-content">
-						<img src={photos.thumbnailUrl} alt="photo_thumb" />
-					</div>
-				</Card>
-			))}
+			{photos?.map((photo: PhotoInterface & IViews, id: number) => {
+				const photo_views = views.find((v) => +v.photoId === +photo.id);
+				return (
+					<Card key={id} onClickHandle={() => handle(photo.id)}>
+						<h2 className="photo-card-title">Photo {photo.id}</h2>
+						<div className="photo-card-subtitle">
+							Views: {photo_views?.views || 0}
+						</div>
+						<div className="photo-card-content">
+							<img src={photo.thumbnailUrl} alt="photo_thumb" />
+						</div>
+					</Card>
+				);
+			})}
 		</>
 	);
 }

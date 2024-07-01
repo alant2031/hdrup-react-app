@@ -1,5 +1,6 @@
 .photo-card-title {
 	color: var(--taupe);
+	font-size: 20px;
 }
 
 .photo-card-content {

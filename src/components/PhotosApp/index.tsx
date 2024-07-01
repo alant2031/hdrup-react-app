@@ -7,13 +7,11 @@ function PhotosApp() {
 	const params = useParams();
 
 	return (
-		<div style={{ padding: "45px" }}>
-			<Container title={"Album " + params.albumId + " / Photos"}>
-				<CardList>
-					<Photos id={params.albumId as string} />
-				</CardList>
-			</Container>
-		</div>
+		<Container title={"Album " + params.albumId + " / Photos"}>
+			<CardList>
+				<Photos albumId={params.albumId as string} />
+			</CardList>
+		</Container>
 	);
 }
 
