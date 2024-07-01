@@ -24,6 +24,7 @@ export const usePhotoViewStorage = (key: string): [IPhotoView, () => void] => {
 		}
 	};
 
-	const photo_views = views.find((v) => v.photoId === key)!;
+	const photo_views = views.find((v) => +v.photoId === +key)!;
+
 	return [photo_views, increaseViews];
 };

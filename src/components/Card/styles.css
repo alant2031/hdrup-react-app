@@ -8,12 +8,14 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 5px;
-	transition: transform 0.5s;
-	cursor: pointer;
+
+	img {
+		transition: box-shadow 0.5s;
+	}
 }
 
-.card:hover {
-	-ms-transform: scale(1.08); /* IE 9 */
-	-webkit-transform: scale(1.08); /* Safari 3-8 */
-	transform: scale(1.08);
+.card .thumb:hover {
+	box-shadow: 0px 0px 7px 1px var(--isabelline);
+	-webkit-box-shadow: 0px 0px 7px 1px var(--isabelline);
+	-moz-box-shadow: 0px 0px 7px 1px var(--isabelline);
 }

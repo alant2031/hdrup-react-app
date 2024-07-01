@@ -6,9 +6,9 @@ import { usePhotoViewStorage } from "../../lib/hooks";
 function PhotoApp() {
 	const params = useParams();
 	const photoId = params.photoId!;
-	const [views, increaseViews] = usePhotoViewStorage(photoId);
+	const [views, _] = usePhotoViewStorage(photoId);
 	useEffect(() => {
-		increaseViews();
+		// console.log(views);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (

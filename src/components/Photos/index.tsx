@@ -5,8 +5,9 @@ import Card from "../Card";
 import listPhoto from "../../lib/listPhoto";
 import { PhotoInterface } from "../../utils/types";
 import { useNavigate } from "react-router-dom";
-import "./styles.css";
 import { useLocalStorage } from "usehooks-ts";
+import Thumb from "../Thumb";
+import "./styles.css";
 
 interface IProps {
 	albumId: string;
@@ -52,14 +53,14 @@ function Photos({ albumId }: IProps) {
 			{photos?.map((photo: PhotoInterface & IViews, id: number) => {
 				const photo_views = views.find((v) => +v.photoId === +photo.id);
 				return (
-					<Card key={id} onClickHandle={() => handle(photo.id)}>
-						<h2 className="photo-card-title">Photo {photo.id}</h2>
+					<Card key={id}>
+						<h2 className="photo-card-title" onClick={() => handle(photo.id)}>
+							Photo {photo.id}
+						</h2>
 						<div className="photo-card-subtitle">
 							Views: {photo_views?.views || 0}
 						</div>
-						<div className="photo-card-content">
-							<img src={photo.thumbnailUrl} alt="photo_thumb" />
-						</div>
+						<Thumb photo={photo} />
 					</Card>
 				);
 			})}

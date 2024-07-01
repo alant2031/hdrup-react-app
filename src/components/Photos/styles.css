@@ -1,6 +1,10 @@
 .photo-card-title {
 	color: var(--taupe);
 	font-size: 20px;
+	&:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
 }
 
 .photo-card-content {

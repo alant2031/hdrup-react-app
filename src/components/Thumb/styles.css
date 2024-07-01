@@ -1,0 +1,7 @@
+.photo-content {
+	height: 100px;
+	overflow: hidden;
+
+	padding: 5px;
+	border-radius: 5px;
+}

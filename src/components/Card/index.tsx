@@ -3,9 +3,9 @@ import "./styles.css";
 
 interface IProps {
 	children: React.ReactNode;
-	onClickHandle(): unknown;
+	onClickHandle?(): unknown;
 }
-function Card({ children, onClickHandle }: IProps) {
+function Card({ children, onClickHandle = () => {} }: IProps) {
 	return (
 		<div className="card" onClick={onClickHandle}>
 			{children}
