@@ -1,0 +1,11 @@
+.photo-card-title {
+	color: var(--taupe);
+}
+
+.photo-card-content {
+	height: 95px;
+	overflow: hidden;
+
+	padding: 5px;
+	border-radius: 5px;
+}

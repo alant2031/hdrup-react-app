@@ -9,7 +9,7 @@
 
 .container-content {
 	background: var(--battleship-gray);
-	padding: 50px;
+	padding: 30px;
 	border-radius: 5px;
 	-webkit-box-shadow: 0px 0px 6px 1px rgba(255, 255, 255, 1);
 	-moz-box-shadow: 0px 0px 6px 1px rgba(255, 255, 255, 1);

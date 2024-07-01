@@ -38,3 +38,8 @@ body {
 	width: 100vw;
 	overflow: hidden;
 }
+
+#home-btn > img {
+	height: 24px;
+	cursor: pointer;
+}

@@ -3,9 +3,14 @@ import "./styles.css";
 
 interface IProps {
 	children: React.ReactNode;
+	onClickHandle(): unknown;
 }
-function Card({ children }: IProps) {
-	return <div className="card">{children}</div>;
+function Card({ children, onClickHandle }: IProps) {
+	return (
+		<div className="card" onClick={onClickHandle}>
+			{children}
+		</div>
+	);
 }
 
 export default Card;
