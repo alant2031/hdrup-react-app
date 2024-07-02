@@ -32,7 +32,8 @@ function Photos({ albumId }: IProps) {
 	};
 	const fetchListPhotos = async () => {
 		const photosResp = (await listPhoto(albumId)) as TPhotoState[];
-		if (photosResp) {
+
+		if (photosResp.length) {
 			const formated = photosResp.map((p) => {
 				const photoItem = localStorage.getItem("photoItem-" + p.id);
 				if (photoItem === null) {
