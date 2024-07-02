@@ -1,9 +1,16 @@
-/// <reference types="@types/jest" />
-// https://stackoverflow.com/a/69043053
+import "@testing-library/jest-dom";
 
-describe("base", () => {
-	test("123 go", () => {
-		const a = 2;
-		expect(a).toBe(2);
+import { screen } from "@testing-library/react";
+import App from "../App";
+import { render } from "../utils/test-utils";
+import AlbumsApp from "../components/AlbumsApp";
+
+describe("Albums", () => {
+	test("Main Page", () => {
+		render(<App />);
+		const el = screen.queryByTestId("app_testid");
+		expect(el).toBeVisible();
 	});
+
+	test("List Albums", () => {});
 });

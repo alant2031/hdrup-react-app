@@ -1,7 +1,9 @@
 {
 	"files": [],
 	"compilerOptions": {
-		"types": ["node"]
+		"types": ["vite/client", "node", "jest", "@testing-library/jest-dom"],
+		"jsx": "react-jsx",
+		"target": "ES6"
 	},
 	"references": [
 		{
@@ -12,4 +14,3 @@
 		}
 	]
 }
-
