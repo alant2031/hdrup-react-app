@@ -1,5 +1,13 @@
 # Projeto Galeria de Fotos
 
+## Comandos
+
+1. `npm install` para instalar dependências
+2. `npm run dev` para rodar aplicação
+3. `npm run test` para rodar testes
+
+## Descrição
+
 API: https://jsonplaceholder.typicode.com
 
 Criar um projeto para exibir e acessas os albums de fotos.

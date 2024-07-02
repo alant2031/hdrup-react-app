@@ -35,7 +35,9 @@ function PhotoDetails() {
 				<div>Loading . . .</div>
 			) : (
 				<>
-					<div>PHOTO {photo?.id} DETAILS</div>
+					<div data-testid="photo-details_testid">
+						PHOTO {photo?.id} DETAILS
+					</div>
 					<p>
 						Album:
 						<span

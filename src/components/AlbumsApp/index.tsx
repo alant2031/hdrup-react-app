@@ -5,7 +5,7 @@ import Albums from "../Albums";
 
 function AlbumsApp() {
 	return (
-		<Container title="Albums">
+		<Container title="Albums" testid="albums-app_testid">
 			<CardList>
 				<Albums />
 			</CardList>

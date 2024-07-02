@@ -63,6 +63,7 @@ function Photos({ albumId }: IProps) {
 						<Card key={id}>
 							<div
 								className="photo-card-title"
+								data-testid="photo-card-title_testid"
 								onClick={() => handle(photo.id)}
 							>
 								{photo.title}

@@ -33,8 +33,12 @@ function Albums() {
 			) : (
 				albums.map((album: AlbumInterface, id) => (
 					<Card key={id}>
-						<h2 className="album-card-title" onClick={() => handle(album.id)}>
-							Album {album.id}
+						<h2
+							className="album-card-title"
+							data-testid="album-card-title_testid"
+							onClick={() => handle(album.id)}
+						>
+							Album <span>{album.id}</span>
 						</h2>
 						<div className="album-card-content">{album.title}</div>
 					</Card>

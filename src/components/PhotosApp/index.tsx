@@ -7,7 +7,10 @@ function PhotosApp() {
 	const params = useParams();
 
 	return (
-		<Container title={"Album " + params.albumId + " / Photos"}>
+		<Container
+			title={"Album " + params.albumId + " / Photos"}
+			testid={"photos-app_testid_" + params.albumId}
+		>
 			<CardList>
 				<Photos albumId={params.albumId as string} />
 			</CardList>
